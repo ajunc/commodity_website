@@ -13,7 +13,10 @@ const en = {
       psw_placeholder: 'Please input your password',
       forget_psw: 'Forget Password',
       login_third_part: 'Thrid part login in',
-      login_tips: 'The registration number means you agree'
+      login_tips: 'The registration number means you agree',
+      account_empty: 'Please input your phone number or your email',
+      password_empty: 'Please input your password',
+      account_format_error: 'Account does not exist'
     },
     // 注册页面
     reigster: {
