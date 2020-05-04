@@ -79,10 +79,11 @@ async function refreshToken ({account, token}) {
 }
 
 // register api
-async function register ({account, password, verifiyCode}) {
+async function register ({account, password, nickname, verifiyCode}) {
   return instance.post('/register', qs.stringify({
     account,
     password,
+    nickname,
     verifiyCode
   }))
 }

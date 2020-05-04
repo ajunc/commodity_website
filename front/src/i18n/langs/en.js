@@ -23,7 +23,8 @@ const en = {
       register: 'Register',
       account_nickname_placeholder: 'Please input your nickname',
       account_placeholder: 'Please input your phone number or your email',
-      psw_placeholder: 'Please input your password（Not less than 6 digits in length)'
+      psw_placeholder: 'Please input your password（Not less than 6 digits in length)',
+      nickname_empty: 'Please input nick name'
     }
   }
 }

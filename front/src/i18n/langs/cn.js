@@ -23,7 +23,8 @@ const cn = {
       register: '注册',
       account_nickname_placeholder: '请输入用户名',
       account_placeholder: '请输入手机号码',
-      psw_placeholder: '请输入密码（不少于6位）'
+      psw_placeholder: '请输入密码（不少于6位）',
+      nickname_empty: '请输入昵称'
     }
   }
 }
