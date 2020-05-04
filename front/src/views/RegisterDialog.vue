@@ -2,22 +2,30 @@
    <el-dialog :title="register_title" :visible.sync="openDialog" @close="dialogClose">
     <el-main>
       <el-form ref="form" :model="form" method="post" novalidate="true">
-        <el-row style="margin-top:0px">
-          <el-input ref="nicknameRef" v-model="form.nickname" :placeholder="nickname_placehoder"></el-input>
+        <el-row style="margin-top:0px" type="flex" justify="center" align="middle">
+          <el-col :span="10">
+            <el-input ref="nicknameRef" v-model="form.nickname" :placeholder="nickname_placehoder"></el-input>
+          </el-col>
         </el-row>
-        <el-row>
-          <el-input ref="accountRef" v-model="form.account" :placeholder="account_placehoder"></el-input>
+        <el-row type="flex" justify="center" align="middle">
+          <el-col :span="10">
+            <el-input ref="accountRef" v-model="form.account" :placeholder="account_placehoder"></el-input>
+          </el-col>
         </el-row>
-        <el-row>
-          <el-input
-            ref="passwordRef"
-            v-model="form.password"
-            :placeholder="psw_placehoder"
-            show-password
-          ></el-input>
+        <el-row type="flex" justify="center" align="middle">
+          <el-col :span="10">
+            <el-input
+              ref="passwordRef"
+              v-model="form.password"
+              :placeholder="psw_placehoder"
+              show-password
+            ></el-input>
+          </el-col>
         </el-row>
-        <el-row>
-          <el-button type="primary" round @click="register">{{$t('message.register.register')}}</el-button>
+        <el-row type="flex" justify="center" align="middle" class="last-child">
+          <el-col :span="10">
+            <el-button style="width:100%" type="primary" round @click="register">{{$t('message.register.register')}}</el-button>
+          </el-col>
         </el-row>
       </el-form>
     </el-main>
@@ -114,12 +122,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .el-row {
-  margin-top: 40px;
+  margin-top: 32px;
 }
-.el-input {
-  width: 320px;
-}
-.el-button {
-  width: 320px;
+.last-child {
+  margin-bottom: -20px;
 }
 </style>

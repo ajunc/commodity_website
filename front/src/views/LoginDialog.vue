@@ -1,19 +1,25 @@
 <template>
   <el-dialog :title="login_title" :visible.sync="openDialog" @close="dialogClose">
     <el-form ref="form" :model="form" method="post" novalidate="true">
-        <el-row style="margin-top:0px">
-          <el-input ref="accountRef" v-model="form.account" :placeholder="account_placehoder"></el-input>
+        <el-row style="margin-top:0px" type="flex" justify="center" align="middle">
+          <el-col :span="10">
+            <el-input ref="accountRef" v-model="form.account" :placeholder="account_placehoder"></el-input>
+          </el-col>
         </el-row>
-        <el-row>
+        <el-row type="flex" justify="center" align="middle">
+          <el-col :span="10">
           <el-input
             ref="passwordRef"
             v-model="form.password"
             :placeholder="psw_placehoder"
             show-password
           ></el-input>
+          </el-col>
         </el-row>
-        <el-row>
-          <el-button type="primary" round @click="login">{{$t('message.login.login')}}</el-button>
+        <el-row type="flex" justify="center" align="middle">
+          <el-col :span="10">
+            <el-button type="primary" style="width:100%" round @click="login">{{$t('message.login.login')}}</el-button>
+          </el-col>
         </el-row>
         <el-button style="margin-top:10px" type="text" round @click="goToRegister">{{$t('message.register.register')}}</el-button>
       </el-form>
@@ -105,11 +111,5 @@ export default {
 <style scoped>
 .el-row {
   margin-top: 40px
-}
-.el-input {
-  width: 320px;
-}
-.el-button {
-  width: 320px;
 }
 </style>

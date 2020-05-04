@@ -1,28 +1,39 @@
 import axio from 'axios'
 import qs from 'qs'
+import i18n from '../i18n/i18n'
 import cookies from 'js-cookie'
 
-const baseURL = 'http://127.0.0.1/weapi'
+const baseURL = 'http://127.0.0.1:3000'
+let lang = i18n.locale
 const headers = {
-  'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
+  'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
+  'Requst-Language': lang
 }
+
 const userTokenKey = 'User-Token'
-let userTokeTemp = ''
+let userTokeTemp = cookies.get(userTokenKey)
 
 // http request interceptor
 function requestInterceptor (request) {
   console.log(request)
   if (request.url && request.baseURL === baseURL) {
+    let headers = request.headers
+    if (i18n.local && lang !== i18n.local) {
+      lang = i18n.local
+      request.headers = {
+        ...headers,
+        'Requst-Language': lang
+      }
+    }
     if (request.url !== '/login') {
-      // TODO 添加token
-      let headers = request.headers
       if (!userTokeTemp) {
         userTokeTemp = cookies.get(userTokenKey)
         console.log(`user token:${userTokeTemp}`)
       }
+
       request.headers = {
         ...headers,
-        userToken: userTokeTemp
+        'User-Token': userTokeTemp
       }
     } else {
       console.log(`current url:${request.url}, not need token`)
@@ -33,9 +44,8 @@ function requestInterceptor (request) {
 
 // http response interceptor
 function responseInterceptor (response) {
-  // TODO auto refresh token
-  console.log(response)
-  return response
+  console.log(`reponse code:${response.status}, data:${JSON.stringify(response.data)}`)
+  return response.data
 }
 
 const instance = axio.create({
@@ -57,10 +67,12 @@ async function login ({account, password}) {
     password
   }))
     .then(response => {
-      if (response.status === 200) {
+      console.info(`login response:${JSON.stringify(response)}, status:${response.status}`)
+      if (response && response.status === 200 && response.data && response.data.userToken) {
         // set token to cookie
         cookies.set(userTokenKey, response.userToken)
       }
+      return response
     })
 }
 
@@ -71,10 +83,11 @@ async function refreshToken ({account, token}) {
     token
   }))
     .then(response => {
-      if (response.status === 200) {
+      if (response && response.status === 200) {
         // set token to cookie
         cookies.set(userTokenKey, response.userToken)
       }
+      return response
     })
 }
 
