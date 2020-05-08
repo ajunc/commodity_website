@@ -1,22 +1,52 @@
 <template>
-  <el-container align="center">
-    <el-header>{{$t('message.app_name')}}</el-header>
-    <el-main>
-      <el-row>
-        <el-button type="primary" round @click="openLoginDialog" icon="el-icon-message">{{$t('message.index.login')}}</el-button>
+  <el-container direction="vertical">
+    <header-view></header-view>
+    <div class="header-divider"></div>
+    <el-container
+      style="height:900px;"
+      direction="vertical"
+    >
+      <el-row style="margin-top:40px">
+        <el-button
+          style="width:180px"
+          type="primary"
+          round
+          @click="openLoginDialog"
+          icon="el-icon-message"
+          >{{ $t("message.index.login") }}</el-button
+        >
       </el-row>
-      <el-row>
-        <el-button type="primary" round @click="goToRegister" icon="el-icon-edit">{{$t('message.index.register')}}</el-button>
+      <el-row style="margin-top:40px;">
+        <el-button
+          style="width:180px"
+          type="primary"
+          round
+          @click="goToRegister"
+          icon="el-icon-edit"
+          >{{ $t("message.index.register") }}</el-button
+        >
       </el-row>
-      <login-dialog ref="loginRef" :dialogVisible="loginDilaogVisible" @dialogClose="loginDialogClose" @goToRegister="loginToRegister"></login-dialog>
-      <register-dialog ref="registerRef" :dialogVisible="registerDilaogVisible" @dialogClose="registerDialogClose"></register-dialog>
-    </el-main>
+      <login-dialog
+        ref="loginRef"
+        :dialogVisible="loginDilaogVisible"
+        @dialogClose="loginDialogClose"
+        @goToRegister="loginToRegister"
+      ></login-dialog>
+      <register-dialog
+        ref="registerRef"
+        :dialogVisible="registerDilaogVisible"
+        @dialogClose="registerDialogClose"
+      ></register-dialog>
+    </el-container>
+    <footer-view></footer-view>
   </el-container>
 </template>
 
 <script>
 import LoginDialog from '../views/LoginDialog'
 import RegisterDialog from '../views/RegisterDialog'
+import HeaderView from '../views/HeaderView'
+import FooterView from '../views/FooterView'
 
 export default {
   data () {
@@ -28,7 +58,9 @@ export default {
   },
   components: {
     LoginDialog,
-    RegisterDialog
+    RegisterDialog,
+    HeaderView,
+    FooterView
   },
   methods: {
     openLoginDialog: function () {
@@ -48,6 +80,12 @@ export default {
       setTimeout(() => {
         this.registerDilaogVisible = !this.$refs.registerRef.visible
       }, 400)
+    },
+    goIndexPage: function () {
+      console.log('goIndexPage')
+    },
+    changeLanguage: function (lang) {
+      console.log('lang:' + lang)
     }
   }
 }
@@ -55,14 +93,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.el-header {
-  text-align: center;
-  line-height: 60px;
-}
-.el-row {
-  margin-top: 40px;
-}
-.el-button {
-  width: 180px;
+.header-divider {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+  height: 1px;
+  margin: 20px 20px;
 }
 </style>

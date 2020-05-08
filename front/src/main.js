@@ -11,6 +11,10 @@ Vue.config.productionTip = false
 
 Vue.use(ElementUI)
 
+if (localStorage.local) {
+  i18n.locale = localStorage.local
+}
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
