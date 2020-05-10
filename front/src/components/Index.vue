@@ -1,7 +1,6 @@
 <template>
   <el-container direction="vertical">
     <header-view></header-view>
-    <div class="header-divider"></div>
     <el-container
       style="height:900px;"
       direction="vertical"
@@ -93,9 +92,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.header-divider {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
-  height: 1px;
-  margin: 20px 20px;
-}
+
 </style>

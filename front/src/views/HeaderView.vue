@@ -1,5 +1,6 @@
 <template>
-  <el-row class="header-content" type="flex" align="middle" justify="center" :gutter="20">
+<el-container class="header-content" type="flex" direction="vertical">
+  <el-row type="flex" align="middle" justify="center" :gutter="20">
     <el-col :span="3">
       <el-button type="text">侧标栏</el-button>
     </el-col>
@@ -53,6 +54,8 @@
       </el-tooltip>
     </el-col>
   </el-row>
+  <div class="header-divider"></div>
+</el-container>
 </template>
 <script>
 import i18n from '../i18n/i18n'
@@ -89,7 +92,7 @@ export default {
 <style scoped>
 .header-content {
   width: 100%;
-  height: 80px;
+  height: 81px;
   margin-top: -60px;
   margin-bottom: -20px;
 }
@@ -104,5 +107,9 @@ export default {
 .header-lang-tooltip {
   text-align: center;
   margin: 20px 20px;
+}
+.header-divider {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+  height: 1px;
 }
 </style>
