@@ -17,7 +17,7 @@
             <el-input
               ref="passwordRef"
               v-model="form.password"
-              :placeholder="psw_placehoder"
+              :placeholder="psw_placeholder"
               show-password
             ></el-input>
           </el-col>
@@ -49,7 +49,7 @@ export default {
       register_title: this.$t('message.register.register'),
       nickname_placehoder: this.$t('message.register.account_nickname_placeholder'),
       account_placehoder: this.$t('message.register.account_placeholder'),
-      psw_placehoder: this.$t('message.register.psw_placeholder'),
+      psw_placeholder: this.$t('message.register.psw_placeholder'),
       form: {
         nickname: '',
         account: '',
@@ -61,6 +61,13 @@ export default {
   watch: {
     dialogVisible (val) {
       this.openDialog = val
+      // fix: 切换语言文本不更新问题
+      if (this.openDialog) {
+        this.register_title = this.$t('message.register.register')
+        this.nickname_placehoder = this.$t('message.register.account_nickname_placeholder')
+        this.account_placehoder = this.$t('message.register.account_placeholder')
+        this.psw_placeholder = this.$t('message.register.psw_placeholder')
+      }
     }
   },
   methods: {
@@ -114,6 +121,12 @@ export default {
     },
     dialogClose: function () {
       this.$emit('dialogClose', true)
+      this.form = {
+        nickname: '',
+        account: '',
+        password: '',
+        verifyCode: ''
+      }
     }
   }
 }

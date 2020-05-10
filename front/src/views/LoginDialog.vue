@@ -1,4 +1,5 @@
 <template>
+  <el-container>
   <el-dialog :title="login_title" :visible.sync="openDialog" @close="dialogClose">
     <el-form ref="form" :model="form" method="post" novalidate="true">
         <el-row style="margin-top:0px" type="flex" justify="center" align="middle">
@@ -24,11 +25,15 @@
         <el-button style="margin-top:10px" type="text" round @click="goToRegister">{{$t('message.register.register')}}</el-button>
       </el-form>
   </el-dialog>
+  <register-dialog :dialogVisible="registerDilaogVisible"
+        @dialogClose="registerDialogClose"></register-dialog>
+  </el-container>
 </template>
 
 <script>
 import httpUtils from '../http/http_utils'
 import formatUtils from '../utils/format_utils'
+import RegisterDialog from '../views/RegisterDialog'
 
 export default {
   props: {
@@ -36,6 +41,9 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  components: {
+    RegisterDialog
   },
   data () {
     return {
@@ -46,12 +54,19 @@ export default {
         account: '',
         password: ''
       },
-      openDialog: this.dialogVisible
+      openDialog: this.dialogVisible,
+      registerDilaogVisible: false
     }
   },
   watch: {
     dialogVisible (val) {
       this.openDialog = val
+      // fix: 切换语言文本不更新问题
+      if (this.openDialog) {
+        this.login_title = this.$t('message.login.login')
+        this.account_placehoder = this.$t('message.login.account_placeholder')
+        this.psw_placehoder = this.$t('message.login.psw_placeholder')
+      }
     }
   },
   methods: {
@@ -99,9 +114,19 @@ export default {
     },
     dialogClose: function () {
       this.$emit('dialogClose', true)
+      this.form = {
+        account: '',
+        password: ''
+      }
     },
     goToRegister: function () {
-      this.$emit('goToRegister')
+      this.openDialog = false
+      setTimeout(() => {
+        this.registerDilaogVisible = !this.registerDilaogVisible
+      }, 400)
+    },
+    registerDialogClose: function () {
+      this.registerDilaogVisible = false
     }
   }
 }

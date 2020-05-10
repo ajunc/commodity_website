@@ -5,37 +5,6 @@
       style="height:900px;"
       direction="vertical"
     >
-      <el-row style="margin-top:40px">
-        <el-button
-          style="width:180px"
-          type="primary"
-          round
-          @click="openLoginDialog"
-          icon="el-icon-message"
-          >{{ $t("message.index.login") }}</el-button
-        >
-      </el-row>
-      <el-row style="margin-top:40px;">
-        <el-button
-          style="width:180px"
-          type="primary"
-          round
-          @click="goToRegister"
-          icon="el-icon-edit"
-          >{{ $t("message.index.register") }}</el-button
-        >
-      </el-row>
-      <login-dialog
-        ref="loginRef"
-        :dialogVisible="loginDilaogVisible"
-        @dialogClose="loginDialogClose"
-        @goToRegister="loginToRegister"
-      ></login-dialog>
-      <register-dialog
-        ref="registerRef"
-        :dialogVisible="registerDilaogVisible"
-        @dialogClose="registerDialogClose"
-      ></register-dialog>
     </el-container>
     <footer-view></footer-view>
   </el-container>
@@ -62,24 +31,6 @@ export default {
     FooterView
   },
   methods: {
-    openLoginDialog: function () {
-      this.loginDilaogVisible = !this.$refs.loginRef.dialogVisible
-    },
-    goToRegister: function () {
-      this.registerDilaogVisible = !this.$refs.registerRef.visible
-    },
-    loginDialogClose: function (result) {
-      this.loginDilaogVisible = !result
-    },
-    registerDialogClose: function (result) {
-      this.registerDilaogVisible = !result
-    },
-    loginToRegister: function () {
-      this.loginDilaogVisible = false
-      setTimeout(() => {
-        this.registerDilaogVisible = !this.$refs.registerRef.visible
-      }, 400)
-    },
     goIndexPage: function () {
       console.log('goIndexPage')
     },

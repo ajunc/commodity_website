@@ -19,7 +19,7 @@ const en = {
       account_format_error: 'Account does not exist'
     },
     // 注册页面
-    reigster: {
+    register: {
       register: 'Register',
       account_nickname_placeholder: 'Please input your nickname',
       account_placeholder: 'Please input your phone number or your email',
@@ -53,6 +53,12 @@ const en = {
     lang: {
       zh: 'China',
       en: 'En'
+    },
+    // AppInfo页面
+    appinfo: {
+      install_app: 'Install App',
+      install_channel: 'App download channel',
+      app_info: 'App Introduce'
     }
   }
 }

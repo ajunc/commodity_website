@@ -53,6 +53,12 @@ const cn = {
     lang: {
       zh: '中文',
       en: '英文'
+    },
+    // AppInfo页面
+    appinfo: {
+      install_app: '安装应用',
+      install_channel: '应用下载渠道',
+      app_info: '应用介绍'
     }
   }
 }
