@@ -25,6 +25,34 @@ const en = {
       account_placeholder: 'Please input your phone number or your email',
       psw_placeholder: 'Please input your password（Not less than 6 digits in length)',
       nickname_empty: 'Please input nick name'
+    },
+    // 关于页面
+    aboutus: {
+      company_introduce: 'Company Introduce',
+      company_team: 'Team Introduce',
+      company_time_line: 'Company Timeline',
+      company_privacy: 'Privacy & Terms',
+      company_employment: 'Talent Recruitment'
+    },
+    // header view
+    header: {
+      benefits: 'Benefits',
+      introduce: 'How it Works',
+      appinfo: 'App Infos',
+      reviews: 'Reviews',
+      helper: 'Helper',
+      shopping: 'Shopping Now'
+    },
+    // footer view
+    footer: {
+      about: 'Abount Us',
+      contact: 'Contact Us',
+      blog: 'Blog',
+      privacy: 'Privacy & Terms'
+    },
+    lang: {
+      zh: 'China',
+      en: 'En'
     }
   }
 }

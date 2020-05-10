@@ -25,6 +25,34 @@ const cn = {
       account_placeholder: '请输入手机号码',
       psw_placeholder: '请输入密码（不少于6位）',
       nickname_empty: '请输入昵称'
+    },
+    // 关于页面
+    aboutus: {
+      company_introduce: '企业介绍',
+      company_team: '团队介绍',
+      company_time_line: '大事件',
+      company_privacy: '隐私政策',
+      company_employment: '人才招聘'
+    },
+    // header view
+    header: {
+      benefits: '功能说明',
+      introduce: '产品介绍',
+      appinfo: 'App介绍',
+      reviews: '产品反馈',
+      helper: '帮助',
+      shopping: '立即购买'
+    },
+    // footer view
+    footer: {
+      about: '关于我们',
+      contact: '联系我们',
+      blog: '新闻咨询',
+      privacy: '隐私政策'
+    },
+    lang: {
+      zh: '中文',
+      en: '英文'
     }
   }
 }

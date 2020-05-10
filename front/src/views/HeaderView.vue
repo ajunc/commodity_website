@@ -12,24 +12,23 @@
       ></el-image>
     </el-col>
     <el-col :span="2">
-      <el-link class="header-link-item" :underline="false">Benifest</el-link>
+      <el-link class="header-link-item" :underline="false">{{$t('message.header.benefits')}}</el-link>
     </el-col>
     <el-col :span="3">
-      <el-link class="header-link-item" :underline="false"
-        >How it Works</el-link
+      <el-link class="header-link-item" :underline="false">{{$t('message.header.introduce')}}</el-link
       >
     </el-col>
     <el-col :span="2">
-      <el-link class="header-link-item" :underline="false">App</el-link>
+      <el-link class="header-link-item" :underline="false">{{$t('message.header.appinfo')}}</el-link>
     </el-col>
     <el-col :span="2">
-      <el-link class="header-link-item" :underline="false">Reviews</el-link>
+      <el-link class="header-link-item" :underline="false">{{$t('message.header.reviews')}}</el-link>
     </el-col>
     <el-col :span="2">
-      <el-link class="header-link-item" :underline="false">Helper</el-link>
+      <el-link class="header-link-item" :underline="false">{{$t('message.header.helper')}}</el-link>
     </el-col>
     <el-col :span="3">
-      <el-button type="success" round>Shopping Now</el-button>
+      <el-button type="success" round>{{$t('message.header.shopping')}}</el-button>
     </el-col>
     <el-col :span="2" style="margin-left:-10px">
       <el-tooltip class="header-lang-tooltip">
@@ -39,7 +38,7 @@
             type="text"
             icon="el-icon-search"
             @click="changeLanguage('zh')"
-            >China</el-button
+            >{{$t('message.lang.zh')}}</el-button
           >
           <br />
           <el-button
@@ -47,7 +46,7 @@
             type="text"
             icon="el-icon-search"
             @click="changeLanguage('en')"
-            >USA</el-button
+            >{{$t('message.lang.en')}}</el-button
           >
         </div>
         <el-button type="text" icon="el-icon-search">{{currentLang}}</el-button>
@@ -66,14 +65,15 @@ export default {
   methods: {
     getLanguageName: function (lang) {
       if (lang === 'zh') {
-        return 'China'
+        return this.$t('message.lang.zh')
       }
       if (lang === 'en') {
-        return 'USA'
+        return this.$t('message.lang.en')
       }
     },
     goIndexPage: function () {
       console.log('goIndexPage')
+      this.$router.push('/')
     },
     changeLanguage: function (lang) {
       console.log('changeLanguge:' + lang)
