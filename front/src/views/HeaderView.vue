@@ -26,7 +26,7 @@
       <el-link class="header-link-item" :underline="false">{{$t('message.header.helper')}}</el-link>
     </el-col>
     <el-col :span="3">
-      <el-button style="width:128px" type="success" round>{{$t('message.header.shopping')}}</el-button>
+      <el-button style="width:128px" @click="goToShopping" type="success" round>{{$t('message.header.shopping')}}</el-button>
     </el-col>
     <el-col :span="1" style="margin-left:-15px">
       <el-tooltip class="header-lang-tooltip">
@@ -103,6 +103,9 @@ export default {
     },
     loginDialogClose: function (result) {
       this.loginDialogVisible = !result
+    },
+    goToShopping: function () {
+      this.$router.push('/shopping')
     }
   }
 }
