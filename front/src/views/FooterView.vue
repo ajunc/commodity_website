@@ -28,6 +28,8 @@
     <el-row tag="div" style="margin-top:90px"
       >© All rights reserved 2020</el-row
     >
+    <el-backtop targe=".page-component__scroll .el-scrollbar__wrap">
+    </el-backtop>
   </el-container>
 </template>
 

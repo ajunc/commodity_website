@@ -1,10 +1,7 @@
 <template>
 <el-container class="header-content" type="flex" direction="vertical">
   <el-row type="flex" align="middle" justify="center" :gutter="20">
-    <el-col :span="2">
-      <el-button type="text">侧标栏</el-button>
-    </el-col>
-    <el-col :span="4">
+    <el-col :span="3" :offset="1">
       <el-image
         src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
         fit="fit"
@@ -12,26 +9,26 @@
         @click="goIndexPage"
       ></el-image>
     </el-col>
-    <el-col :span="2">
+    <el-col :span="3">
       <el-link class="header-link-item" :underline="false">{{$t('message.header.benefits')}}</el-link>
     </el-col>
     <el-col :span="3">
       <el-link class="header-link-item" :underline="false">{{$t('message.header.introduce')}}</el-link
       >
     </el-col>
-    <el-col :span="2">
+    <el-col :span="3">
       <el-link class="header-link-item" href="/appinfo" :underline="false">{{$t('message.header.appinfo')}}</el-link>
     </el-col>
-    <el-col :span="2">
+    <el-col :span="3">
       <el-link class="header-link-item" :underline="false">{{$t('message.header.reviews')}}</el-link>
     </el-col>
-    <el-col :span="2">
+    <el-col :span="3">
       <el-link class="header-link-item" :underline="false">{{$t('message.header.helper')}}</el-link>
     </el-col>
     <el-col :span="3">
-      <el-button type="success" round>{{$t('message.header.shopping')}}</el-button>
+      <el-button style="width:128px" type="success" round>{{$t('message.header.shopping')}}</el-button>
     </el-col>
-    <el-col :span="2" style="margin-left:-15px">
+    <el-col :span="1" style="margin-left:-15px">
       <el-tooltip class="header-lang-tooltip">
         <div slot="content">
           <el-button
@@ -54,6 +51,8 @@
       </el-tooltip>
     </el-col>
     <el-col :span="1">
+    </el-col>
+    <el-col :span="1" style="margin-right:20px">
       <el-image class="header-avatar" fit="fill" src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" size="medium" @click="loginOrLogout"></el-image>
     </el-col>
   </el-row>
